@@ -25,4 +25,18 @@ export default () => ({
     ];
     return db.query(query, values);
   },
+
+  CreateProduct: async (user: {
+    image_product: string;
+    name_product:string;
+    description_product:string;
+    price_product:number;
+    stock_product:number;
+  }) => {
+    const query = "INSERT INTO Product (image_product,name_product,description_product,price_product,stock_product) VALUES (?,?,?,?,?)";
+
+    const values = [user.image_product, user.name_product, user.description_product,user.price_product,user.stock_product]
+
+    return db.query(query, values);
+  },
 })

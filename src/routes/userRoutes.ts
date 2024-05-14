@@ -13,6 +13,12 @@ import { authController } from "../controllers/User/authController";
 //* ----- History
 import historial from "../controllers/User/historialController";
 
+
+//* ----- Buy
+import { createProductController } from "../controllers/User/createProductController";
+
+
+
 /**
  * @route POST /register
  * @description Registrar un nuevo usuario
@@ -37,7 +43,12 @@ router.post("/login",authController );
 
 router.get('/history', jwtAuthMiddleware,historial);
 
+/**
+ * @route Get /register
+ * @description Registrar un nuevo usuario
+ * @access Público
+ */
 
-
+router.post("/createProduct",jwtAuthMiddleware,createProductController);
 
 export default router;
